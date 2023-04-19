@@ -29,7 +29,7 @@ class siteController extends Controller
         inner join categories as cat on cat.id = c.category
         where ct.package = '$id' ");
 
-        $total = DB::select("SELECT cat.name, count(ct.channel) as total from packages as p
+        $total = DB::select("SELECT cat.name as canal, count(ct.channel) as total from packages as p
         inner join contract ct on ct.package = p.id
         inner join channels c on c.id = ct.channel
         inner join categories as cat on cat.id = c.category

@@ -3,7 +3,7 @@
 @section('title','Detalhes do Pacote')
 
 @section('content')
-<div class="row topo blue lighten-5" style="padding: 10px;">
+<div class="row topo blue lighten-5" style="padding-top: 10px;">
     <div class="col s6 center"> Pacote
         @foreach ( $pacote as $p )
           <strong style="font-weight:bold;">  {{$p->pacote}}  </strong>
@@ -26,7 +26,7 @@
 </form>
     </div>
 </div>
-<div class="row" style="padding: 10px;">
+<div class="row" style="padding: 0px 10px;">
     <div class="col s6">
         <h4 style="with:100%;">Seu Canais</h4>
         <table class="striped responsive-table">
@@ -43,6 +43,18 @@
             </div>
             <div class="col s6">
          <h4>Categorias Disponiveis</h4>
+         <table class="striped responsive-table">
+            <tbody>
+            
+                @foreach ($total as $t )
+                <tr>
+                <td>{{$t->canal}}</td>
+                <td>{{$t->total}}</td>
+                  </tr>
+                @endforeach
+            
+            </tbody>
+          </table>
             </div>
 
 </div>
