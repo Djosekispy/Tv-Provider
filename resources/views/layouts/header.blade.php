@@ -29,10 +29,10 @@
 
 
   <ul id='dropdown1' class='dropdown-content  lime lighten-4'>
-    <li><a href="#">Facil</a></li>
-    <li><a href="#!">Normal</a></li>
-    <li><a href="#!">Grande</a></li>
-    <li><a href="#!">Mega</a></li>
+    <li><a href="/channel/1">Facil</a></li>
+    <li><a href="/channel/2">Normal</a></li>
+    <li><a href="/channel/3">Grande</a></li>
+    <li><a href="/channel/4">Mega</a></li>
   </ul>
 
 

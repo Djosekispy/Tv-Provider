@@ -3,8 +3,8 @@
 @section('title','Detalhes do Pacote')
 
 @section('content')
-<div class="row topo blue lighten-5" style="padding-top: 10px;">
-    <div class="col s6 center"> Pacote
+<div class="row topo blue lighten-5" style="padding-top: 10px; padding-bottom:5px;">
+    <div class="col s6 left" style="padding-left:20px;"> Pacote
         @foreach ( $pacote as $p )
           <strong style="font-weight:bold;">  {{$p->pacote}}  </strong>
         @endforeach
@@ -16,13 +16,18 @@
         @foreach ( $pacote as $p )
         <strong style="font-weight:lighter ;">   {{$p->descricao}}  </strong>
       @endforeach
+      <br>
+      <a  class="btn  blue darken-4">
+       @foreach ( $pacote as $p )
+   Disponivel por apenas {{$p->preco}} kwanzas
+@endforeach
+    </a>
        
     @endforeach</div>
     <div class="col s3 right">
 <form action="#" method="post">
-<button type="submit" name="comprar" class="btn"> @foreach ( $pacote as $p )
-   Disponivel por apenas {{$p->preco}}kz
-@endforeach</button>
+    @csrf
+    <button type="submit" class="btn">Contratar</button>
 </form>
     </div>
 </div>

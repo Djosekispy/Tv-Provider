@@ -47,4 +47,11 @@ class siteController extends Controller
             'canais' => $canais
         ]);
     }
+
+    public function buy(Request $request){
+      
+
+
+
+    }
 }
