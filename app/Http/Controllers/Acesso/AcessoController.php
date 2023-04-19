@@ -26,14 +26,13 @@ class AcessoController extends Controller
                 'email' => "Os dados inseridos não conferem, verifique e tente novamente!"
             ]);
 
-    }else{
+    }
        if($user->phone_verified_at == NULL){
         self::verifyAccount($user);
-       }else{
+       }
+
         $request->session()->regenerate();
         return view('index');
-       }
-    }
 
     }
 

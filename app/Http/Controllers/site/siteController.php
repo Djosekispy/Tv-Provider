@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Package;
 use App\Models\Categories;
+use App\Models\Subscription;
 use Illuminate\Support\Facades\DB;
 
 class siteController extends Controller
@@ -49,8 +50,8 @@ class siteController extends Controller
     }
 
     public function buy(Request $request){
-        $subscription = Subscription::where('user', $id)
-        ->where('package', $package)
+        $subscription = Subscription::where('user', $request->id)
+        ->where('package', $request->package)
         ->where(function($query) {
             $query->where('status', '1');
         })
