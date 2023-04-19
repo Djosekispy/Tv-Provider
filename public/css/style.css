@@ -1,0 +1,155 @@
+*{
+	margin : 0;
+	padding: 0;
+	font-family: hevetica, sans-serif, arial, new times roma;
+
+}
+.pacotes{
+	margin: 0;
+	padding: 0;
+}
+nav{
+	padding: 0 25px;
+
+}
+#tituloPacote{
+	font-size: 25px;
+	font-weight: bolder;
+	padding: 10px;
+}
+#plano{
+	margin-top: 300px;
+	margin-left: 180px;
+}
+.principal{
+	width:  100%;
+	height: 700px;
+	background-size: cover;
+	
+}
+.pacotes{
+	margin-right: 40px;
+}
+footer{
+	padding-top: 10px;
+}
+footer .centro{
+	text-align: left;
+	margin: 10px auto;
+	padding: 10px;
+	max-width: 700px;
+}
+.col ul li{
+	padding-top: 10px;
+	font-size: 15px;
+	font-style: normal;
+}
+
+#primeiroLugar{
+	background: url('../img/001.jpg') no-repeat;
+	background-size: 100%;
+}
+#segundoLugar{
+	background: url('../img/007.jpg') no-repeat center;
+	background-size: 100%;
+	background-color: #263238;
+	padding-top: 50px;
+
+}
+#texto{
+	text-align: center;
+	float: right;
+	font-size: 20px;
+	margin-bottom: 100px;
+	max-width: 500px;
+}
+#Newletter{
+	clear: both;
+	margin-top: 80px;
+	padding-top: 50px;
+	text-align: center;
+	margin: 6px auto;
+	padding: 10px;
+	width: 800px;
+	color: white;
+}
+#Newletter h4{
+	font-size: 30px;
+	padding-top: 50px;
+	font-weight: bolder;
+	text-align: center;
+	color:  black;
+}
+#Newletter p{
+	font-size: 25px;
+	font-weight: bold;
+	text-align: center;
+	color:  white;
+}
+#Newletter form{
+	position: relative;
+	width: 100%;
+}
+
+#Newletter form input{
+	background-color: white;
+	border: 2px solid #e0f7fa ;
+	padding: 5px;
+	color: black;
+	width: 98%;
+	border-radius: 15px;
+}
+#Newletter form button{
+position: absolute;
+height: 90%;
+top: 0px;
+cursor: pointer;
+background-color: #b2ebf2;
+padding: 15px;
+border: 1px solid #e0f7fa ;
+right: 0px;
+border-radius: 15px;
+	}
+
+.DizerPrincipal{
+	font-family:hevetica, sans-serif, arial, new times roma;
+	margin-right: 50px;
+	padding-top: 20px;
+	word-wrap: break-word;
+	max-width: 700px;
+	text-align: justify;
+	float: right;
+	font-size: 25px;
+	color: #212121;
+}
+.login{
+ max-width: 800px;
+ margin: 10px auto;
+ padding: 50px 10px;
+ background-color: #b2ebf2;
+ }
+#email, #password{
+    background-color: white;
+    border: 1px solid #e0f7fa ;
+    text-indent: 10px;
+    color: black;
+}
+.logar{
+    max-width: 70%;
+    width:100%;
+    margin:3px auto;
+    text-align: center;
+}
+h4{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin:15px;
+    padding: 20px;
+    font-weight: bolder;
+}
+.topo{
+    text-align: center;
+}
+.topo > div{
+    word-spacing: 5px;
+    font-size: 20px;
+}
