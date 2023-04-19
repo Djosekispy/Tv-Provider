@@ -49,9 +49,12 @@ class siteController extends Controller
     }
 
     public function buy(Request $request){
-      
-
-
+        $subscription = Subscription::where('user', $id)
+        ->where('package', $package)
+        ->where(function($query) {
+            $query->where('status', '1');
+        })
+        ->first();
 
     }
 }
