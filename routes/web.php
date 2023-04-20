@@ -10,7 +10,7 @@ Route::get('/user', [AcessoController::class, 'all']);
 Route::post('/registrar',[AcessoController::class, 'register']);
 Route::post('/login',[AcessoController::class, 'authenticate']);
 Route::get('/resend/{phone}', [AcessoController::class, 'resend']);
-
+Route::post('/confirm',[AcessoController::class, 'confirm']);
 
 
 //Rotas do site

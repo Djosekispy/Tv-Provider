@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use DateTime;
 use Illuminate\Http\RedirectResponse;
 use Twilio\Rest\Client;
 
@@ -121,6 +122,26 @@ public function resend($phone): RedirectResponse
     self::verifyAccount($user);
 }
 
+public function confirm(Request $request){
+ $user = User::findOrFail($request->user_id);
+ $date = DateTime();
+ if($user){
+  $verify = DB::select("SELECT * from users where id = '$request->user_id' and two_factor_secret = '$request->cod' ");
+  if($verify){
+    $ok = DB::update("UPDATE users where id = '$request->user_id'
+    set phone_verified_at = '$date' ");
+    return redirect('/login');
+  }
+ }
+
+ return view('auth.confirm-password',[
+    'phone' => $request->phone,
+    'user_id' => $request->user_id
+ ]);
+}
+
+
+}
 
 
 }
