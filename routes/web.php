@@ -19,6 +19,8 @@ Route::post('/',[AcessoController::class, 'logout'])->name('my-logout');
 Route::get('/',[siteController::class, 'index'])->name('site.index');
 Route::post('/subscription/buy', [siteController::class, 'buy'])->middleware('auth');
 Route::get('/channel/{id}',[siteController::class, 'channels']);
+Route::get('/Channels', [siteController::class, 'channel']);
+
 
 //Rotas de API
 Route::get('/api/services',[servicesController::class, 'index']);

@@ -9,7 +9,7 @@ use App\Models\Categories;
 use App\Models\Subscription;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\Channel;
 class siteController extends Controller
 {
 
@@ -67,4 +67,12 @@ class siteController extends Controller
     return back()->with('message','Plano Comprado com sucesso!');
 
     }
+
+public function channel(){
+    $canais = Channel::all();
+
+    return view('site.channels', compact('canais'));
+}
+
+
 }
