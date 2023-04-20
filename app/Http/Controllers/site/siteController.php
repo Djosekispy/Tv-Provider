@@ -40,7 +40,7 @@ class siteController extends Controller
 
         $canais = DB::select("select count(*) canais from contract where package = '$id'");
 
-        $pacote = DB::select(" SELECT name as pacote,description as descricao, price as preco from packages where id = '$id' limit 1");
+        $pacote = DB::select(" SELECT name as pacote, id as identify,description as descricao, price as preco from packages where id = '$id' limit 1");
 
         return view('site.deteils',[
             'channel' => $channels,
@@ -51,20 +51,20 @@ class siteController extends Controller
     }
 
     public function buy(Request $request){
-        $subscription = Subscription::where('user', $request->id)
-        ->where('package', $request->package)
-        ->where(function($query) {
-            $query->where('state', '1');
-        })
-        ->first();
-        $ctivo = Subscription::where('users',$request->id)
-        ->where('state','1');
+        $user_id = Auth::id();
+        $sub = new Subscription();
+        $subscription = DB::select("SELECT * from subscription where id in (SELECT id from subscription where state = '1') and user = '$user_id' ");
+        $ctivo = Subscription::where('user',$user_id)
+        ->where('state','1')->get()->first();
     if($subscription){
-        return back()->with("erro","Plano já activo Não pode activar o mesmo plano");
+        return back()->with("message","Plano já activo Não pode activar o mesmo plano");
     }
-   
-    $comprar = DB::update("UPDATE subscription where user = '$request->id' and state = '1' set state = '0' ");
-    
+
+    $sub->user =  $user_id;
+    $sub->package = $request->package;
+    $sub->save();
+
+    return back()->with('message','Plano Comprado com sucesso!');
 
     }
 }

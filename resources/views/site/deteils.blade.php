@@ -22,15 +22,30 @@
    Disponivel por apenas {{$p->preco}} kwanzas
 @endforeach
     </a>
-       
+   
+   
     @endforeach</div>
     <div class="col s3 right">
-<form action="#" method="post">
+<form action="/subscription/buy" method="post">
     @csrf
     <button type="submit" class="btn">Contratar</button>
+    <input name="package" value=" @foreach ( $pacote as $p )
+    {{$p->identify}} 
+ @endforeach" style="display: none;">
+
 </form>
     </div>
 </div>
+
+
+<div>
+    @if($mensagem = Session::get('message'))
+  {{$messagem}}
+    @endif;
+</div>
+
+
+
 <div class="row" style="padding: 0px 10px;">
     <div class="col s6">
         <h4 style="with:100%;">Seu Canais</h4>
