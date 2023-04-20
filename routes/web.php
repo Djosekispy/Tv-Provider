@@ -10,9 +10,11 @@ Route::get('/user', [AcessoController::class, 'all']);
 Route::post('/registrar',[AcessoController::class, 'register']);
 Route::post('/login',[AcessoController::class, 'authenticate']);
 Route::get('/resend/{phone}', [AcessoController::class, 'resend']);
-Route::post('/confirm',[AcessoController::class, 'confirm']);
+Route::post('/confirm',[AcessoController::class, 'confirm'])->name('confirmando');
 
-
+Route::get('/c',function(){
+return view('auth.confirm-password');
+});
 //Rotas do site
 Route::get('/',[siteController::class, 'index'])->name('site.index');
 Route::post('/subscription/buy', [siteController::class, 'buy'])->middleware('auth');

@@ -108,7 +108,7 @@ public function verifyAccount($data){
                                    )
                           );
         return $phone;
-                           
+
 }
 
 
@@ -123,14 +123,20 @@ public function resend($phone): RedirectResponse
 }
 
 public function confirm(Request $request){
- $user = User::findOrFail($request->user_id);
- $date = new DateTime();
+
+$user = User::where('id',$request->user_id)->get()->first();
+ $date = date("Y-m-d H:m:i");
  if($user){
-  $verify = DB::select("SELECT * from users where id = '$request->user_id' and two_factor_secret = '$request->cod' ");
+  $verify = DB::select("SELECT * from users where id = '$user->id' and two_factor_secret = '$request->cod' ");
   if($verify){
-    $ok = DB::update("UPDATE users where id = '$request->user_id'
-    set phone_verified_at = '$date' ");
-    return redirect('/login');
+
+   User::where('id',$request->user_id)
+    ->update([
+        'phone_verified_at' => $date
+    ]);
+
+    Auth::login($user, $remember = true);
+        return redirect('/');
   }
  }
 
