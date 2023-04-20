@@ -29,7 +29,11 @@ class AcessoController extends Controller
     }else{
        $verificado = DB::select("SELECT * from users where email = '$email' and phone_verified_at is not NULL ");
        if(!$verificado){
-        self::verifyAccount($user);
+        $phone =  self::verifyAccount($user);
+        return view('auth.confirm-password',[
+            'phone' => $phone,
+            'user_id' => $user->id
+         ]);
        }
 
     }
@@ -59,7 +63,11 @@ class AcessoController extends Controller
 
             $user->save();
 
-        self::verifyAccount($user);
+        $phone =  self::verifyAccount($user);
+        return view('auth.confirm-password',[
+            'phone' => $phone,
+            'user_id' => $user->id
+         ]);
 }
 
 public function codigos(): array
@@ -98,7 +106,8 @@ public function verifyAccount($data){
 
                                    )
                           );
-                           return view('auth.confirm-password',['phone' => $phone ]);
+        return $phone;
+                           
 }
 
 
@@ -111,5 +120,7 @@ public function resend($phone): RedirectResponse
     }
     self::verifyAccount($user);
 }
+
+
 
 }

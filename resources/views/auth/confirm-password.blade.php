@@ -19,7 +19,7 @@ input::placeholder{
         @csrf
         <div class="center">
           <h4>Seja Bem vindo(a) ao NetGenius</h4>
-          <h5>Por Favor verifique seu número de Telefone</h5>
+          <h6>Por favor verifique seu número de Telefone</h6>
 @if(isset($erro))
   <h6>{{$erro}}</h6>
 @endif;
@@ -37,7 +37,7 @@ input::placeholder{
   </div>
 
   <div class="input-field col s12">
-    <link href="/resend/{{$phone}}" class="waves-effect waves-light btn">Renviar sms de confirmação</link>
+    <a href="/resend/{{$phone}}" class="waves-effect waves-light">Renviar sms de confirmação</a>
   </div>
 </form>
 </div>
