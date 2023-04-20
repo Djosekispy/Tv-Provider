@@ -55,10 +55,10 @@
 
             <div class="input-field col s9">
 
-                    <a class="link" href="{{ route('password.request') }}">
+                    <a class="link" href="#">
                         {{ __('Esqueceu sua senha?') }}
                     </a>
-                    <a class="link" href="#">
+                    <a class="link" href="/register">
                         {{ __('Criar Conta') }}
                     </a>
             </div>

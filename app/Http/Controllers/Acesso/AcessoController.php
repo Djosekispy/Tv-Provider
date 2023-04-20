@@ -124,7 +124,7 @@ public function resend($phone): RedirectResponse
 
 public function confirm(Request $request){
  $user = User::findOrFail($request->user_id);
- $date = DateTime();
+ $date = new DateTime();
  if($user){
   $verify = DB::select("SELECT * from users where id = '$request->user_id' and two_factor_secret = '$request->cod' ");
   if($verify){
@@ -138,9 +138,6 @@ public function confirm(Request $request){
     'phone' => $request->phone,
     'user_id' => $request->user_id
  ]);
-}
-
-
 }
 
 
