@@ -18,15 +18,22 @@
           <ul id="nav-mobile" class="right">
             <li><a href="/">Home</a></li>
             <li><a class='dropdown-trigger' href='#' data-target='dropdown1' >Serviços</a></li>
-            <li><a href="#">Sobre Nós</a></li>
-            <li><a href="#">Perfil</a></li>
+            <li><a href="#">Histórico</a></li>
             @auth
 <li><a href="#">Personalizar Pacote</a></li>
-<li><a href="#">Sair</a></li>
+<li><a href="#">Sobre Nós</a></li>
+<li>
+    <a href="{{ route('my-logout') }}" onclick="event.preventDefault(); document.getElementById('my-logout-form').submit();">
+        Sair
+    </a>
+</li>
+<form id="my-logout-form" action="{{ route('my-logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
             @endauth
             
             @guest
-            <li><a href="/login">Entrar</a></li>
+            <li><a href="{{route('login')}}">Entrar</a></li>
             <li><a href="/register">Criar Conta</a></li>
             @endguest
           </ul>

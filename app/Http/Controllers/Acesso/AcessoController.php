@@ -146,5 +146,12 @@ $user = User::where('id',$request->user_id)->get()->first();
  ]);
 }
 
+public function logout()
+{
+   
+    Auth::logout();
+
+    return redirect('/');
+}
 
 }
