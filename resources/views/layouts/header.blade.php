@@ -10,7 +10,7 @@
 
 </head>
 <body>
-    <nav class="purple darken-4">
+    <nav style="background-color: #006b3c;">
         <div class="nav-wrapper">
           <a href="#" class="brand-logo">
               <img src="{{asset('img/logo.png')}}">
@@ -20,7 +20,7 @@
             <li><a class='dropdown-trigger' href='#' data-target='dropdown1' >Serviços</a></li>
             <li><a href="#">Histórico</a></li>
             @auth
-<li><a href="#">Personalizar Pacote</a></li>
+<li><a href="/Channel">Personalizar Pacote</a></li>
 <li><a href="#">Sobre Nós</a></li>
 <li>
     <a href="{{ route('my-logout') }}" onclick="event.preventDefault(); document.getElementById('my-logout-form').submit();">
