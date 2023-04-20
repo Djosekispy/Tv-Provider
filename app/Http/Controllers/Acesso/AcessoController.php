@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\RegisterRequest;
-use App\Http\Requests\authenticateRequest;
+use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
@@ -15,26 +15,31 @@ use Twilio\Rest\Client;
 
 class AcessoController extends Controller
 {
-    public function authenticate(authenticateRequest $request)
+    public function authenticate(Request $request)
     {
-        $data = $request->validated();
-        $email = $data['email'];
-        $password = $data['password'];
+
+        $email = $request->email;
         $user = User::where('email',$email)->get()->first();
-        if(empty($user)){
+
+       if(empty($user)){
             return view('auth.login',[
                 'email' => "Os dados inseridos não conferem, verifique e tente novamente!"
             ]);
 
-    }
-       if($user->phone_verified_at == NULL){
+    }else{
+       $verificado = DB::select("SELECT * from users where email = '$email' and phone_verified_at is not NULL ");
+       if(!$verificado){
         self::verifyAccount($user);
        }
 
-        $request->session()->regenerate();
-        return view('index');
+    }
+
+       Auth::login($user, $remember = true);
+        return redirect('/');
+
 
     }
+
 
     public function register(RegisterRequest $request)
 {
@@ -81,21 +86,19 @@ public function verifyAccount($data){
     $token = getenv("TWILIO_AUTH_TOKEN");
     $number = getenv("TWILIO_NUMBER");
 
-    $twilio = new Client($sid, $token);
+    $twilio = new Client( $sid, $token);
     $phone = $data->phone;
 
                       $twilio->messages
-                          ->create( $phone,
+                          ->create( '+244'.$phone,
                                    array(
                                        "messagingServiceSid" => "MG73483e8585a7087c0f6328edfb403207",
-                                       "body" => "Seu Codigo de Verificação NetGenius ".$data->two_factor_secret,
+                                       'from' => $number,
+                                       "body" => "Seu Codigo de Verificação NetGenius: ".$data->two_factor_secret,
 
                                    )
                           );
-
-            return view('auth.confirm-password',[
-                'phone' => $phone
-            ]);
+                           return view('auth.confirm-password',['phone' => $phone ]);
 }
 
 

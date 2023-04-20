@@ -20,9 +20,15 @@
             <li><a class='dropdown-trigger' href='#' data-target='dropdown1' >Serviços</a></li>
             <li><a href="#">Sobre Nós</a></li>
             <li><a href="#">Perfil</a></li>
-            <li><a href="#">Personalizar Pacote</a></li>
+            @auth
+<li><a href="#">Personalizar Pacote</a></li>
+<li><a href="#">Sair</a></li>
+            @endauth
+            
+            @guest
             <li><a href="/login">Entrar</a></li>
             <li><a href="/register">Criar Conta</a></li>
+            @endguest
           </ul>
         </div>
       </nav>

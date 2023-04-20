@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Package;
 use App\Models\Categories;
 use App\Models\Subscription;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class siteController extends Controller
@@ -53,9 +54,17 @@ class siteController extends Controller
         $subscription = Subscription::where('user', $request->id)
         ->where('package', $request->package)
         ->where(function($query) {
-            $query->where('status', '1');
+            $query->where('state', '1');
         })
         ->first();
+        $ctivo = Subscription::where('users',$request->id)
+        ->where('state','1');
+    if($subscription){
+        return back()->with("erro","Plano já activo Não pode activar o mesmo plano");
+    }
+   
+    $comprar = DB::update("UPDATE subscription where user = '$request->id' and state = '1' set state = '0' ");
+    
 
     }
 }

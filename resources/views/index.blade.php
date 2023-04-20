@@ -5,7 +5,6 @@
 @section('content')
 
 
-
 <div class="principal" id="primeiroLugar">
 
 <a href="#" class="btn-large waves-effect waves-light  blue darken-4 pulse" id="plano">Adira já </a>
