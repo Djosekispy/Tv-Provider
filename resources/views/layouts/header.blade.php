@@ -155,6 +155,11 @@ $(".dropdown-trigger").dropdown({
 $('.sidenav').sidenav();
 });
 
+$(document).ready(function(){
+  $('.carousel').carousel({
+    duration: 2000 // transição a cada 2 segundos
+  });
+});
  </script>
 
 </body>

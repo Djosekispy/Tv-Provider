@@ -37,7 +37,9 @@ Route::get('/register', function(){
     });
 
 
-
+Route::get('/teste',function(){
+    return view('site.testes');
+});
 
 
 
