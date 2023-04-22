@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+#diario{
+    width: 100%;
+    color: white;
+    background: url(../fotos/minha7.jpg) no repeat black;
+}
+.escrever{
+    margin:  2px;
+    background-color: white;
+    padding-bottom: 2px;
+}
+textarea{
+    border: 2px solid;
+    border-radius: 5px;
+}
+button{
+    width: 100%;
+    text-align: center;
+}
+ul li a:hover{
+    background-color: white;
+    opacity: 30px;
+    color: red;
+    font-weight: bold;
+}
+.conteudo{
+    margin-top: 5px;
+    text-indent: 10px;
+    text-align: center;
+}
+
+#icones{
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

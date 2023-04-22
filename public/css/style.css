@@ -1,157 +1,197 @@
 *{
-	margin : 0;
-	padding: 0;
-	font-family: hevetica, sans-serif, arial, new times roma;
+   font-family: sans-serif;
 
 }
-.pacotes{
-	margin: 0;
-	padding: 0;
+body{
+     background-color: #212121;
+    overflow-x: hidden;
 }
-nav{
-	padding: 0 25px;
+.cabecalho{
+    padding: 5px;
+}
+#menu ul li a{
+    font-weight: lighter;
+    font-size: 15px;
+}
+#menu ul li a:hover{
+    background-color: #b2dfdb;
+}
+#menu ul li a:active{
+    background-color: #b2dfdb;
+}
+.sectionCard{
+    display: flex;
 
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
 }
-#tituloPacote{
-	font-size: 25px;
-	font-weight: bolder;
-	padding: 10px;
-}
-#plano{
-	margin-top: 300px;
-	margin-left: 180px;
-}
-.principal{
-	width:  100%;
-	height: 700px;
-	background-size: cover;
-	
-}
-.pacotes{
-	margin-right: 40px;
-}
-footer{
-	padding-top: 10px;
-}
-footer .centro{
-	text-align: left;
-	margin: 10px auto;
-	padding: 10px;
-	max-width: 700px;
-}
-.col ul li{
-	padding-top: 10px;
-	font-size: 15px;
-	font-style: normal;
-}
-
-#primeiroLugar{
-	background: url('../img/001.jpg') no-repeat;
-	background-size: 100%;
-}
-#segundoLugar{
-	background: url('../img/007.jpg') no-repeat center;
-	background-size: 100%;
-	background-color: #263238;
-	padding-top: 50px;
-
-}
-#texto{
-	text-align: center;
-	float: right;
-	font-size: 20px;
-	margin-bottom: 100px;
-	max-width: 500px;
-}
-#Newletter{
-	clear: both;
-	margin-top: 80px;
-	padding-top: 50px;
-	text-align: center;
-	margin: 6px auto;
-	padding: 10px;
-	width: 800px;
-	color: white;
-}
-#Newletter h4{
-	font-size: 30px;
-	padding-top: 50px;
-	font-weight: bolder;
-	text-align: center;
-	color:  black;
-}
-#Newletter p{
-	font-size: 25px;
-	font-weight: bold;
-	text-align: center;
-	color:  white;
-}
-#Newletter form{
-	position: relative;
-	width: 100%;
-}
-
-#Newletter form input{
-	background-color: white;
-	border: 2px solid #e0f7fa ;
-	padding: 5px;
-	color: black;
-	width: 98%;
-	border-radius: 15px;
-}
-#Newletter form button{
-position: absolute;
-height: 90%;
-top: 0px;
-cursor: pointer;
-background-color: #b2ebf2;
-padding: 15px;
-border: 1px solid #e0f7fa ;
-right: 0px;
-border-radius: 15px;
-	}
-
-.DizerPrincipal{
-	font-family:hevetica, sans-serif, arial, new times roma;
-	margin-right: 50px;
-	padding-top: 20px;
-	word-wrap: break-word;
-	max-width: 700px;
-	text-align: justify;
-	float: right;
-	font-size: 25px;
-	color: #212121;
-}
-.login{
- max-width: 800px;
- margin: 10px auto;
- padding: 50px 10px;
- background-color: #b2ebf2;
- }
-#email, #password{
-    background-color: white;
-    border: 1px solid #e0f7fa ;
-    text-indent: 10px;
-    color: black;
-}
-.logar{
-    max-width: 70%;
-    width:100%;
-    margin:3px auto;
+.newslatter{
+    padding: 5rem 0;
+    width: 100%;
+    background: url('../img/13.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
     text-align: center;
 }
-h4{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    margin:15px;
-    padding: 20px;
-    font-weight: bolder;
+#newsTema h4{
+    font-size: 3.5rem;
+    color: white;
 }
-.topo > div{
-    word-spacing: 5px;
+#newsParagrafo p{
+ color: white;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+#newsFormulario{
+    max-width: 100%;
+    margin: 0px auto;
+}
+#newsFormulario form{
+    width: 100%;
+    position: relative;
+}
+#newsFormulario form #formInput{
+    width: 50rem;
+    height: 50px;
+    text-indent: 10px;
+    outline: none;
+    border-radius: 10px;
+   border: 2px solid #827717;
+}
+#newsFormulario form button{
+    width: 100px;
+    position: absolute;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    top: 0;
+    right: 0;
+     border: 2px solid #827717;
+     border-left: none;
+     background: #424242;
+     color: white;
+     text-transform: uppercase;
+}
+
+.addSection{
+    color: black;
+    padding: 30px;
     font-size: 20px;
 }
-table tr td{
-    padding-left:10px;
-    font-size:20px;
-    font-family: 'Times New Roman', Times, serif;
+.ppaymentSection > div {
+    margin-top: 3px;
 }
+.addSection table tbody tr:hover{
+    background-color: #81c784 ;
+}
+.addSection table tbody tr:nth-child(even){
+    background-color: #a5d6a7;
+}
+
+
+
+.footer{
+    padding: 2rem 10px;
+    font-size: 1.2rem;
+    text-align: center;
+    color: white;
+    background: #263238;
+}
+.footer-SocialMedia > div{
+    margin: 5px;
+    text-align: left;
+    font-size: 15px;
+   font-family: Courier New Monospace Lucida Console;
+}
+.firstSecction{
+    position: relative;
+      width: 100%;
+      height: 500px;
+    display: flex;
+    background: url('../img/001.jpg') no-repeat;
+      background-size: cover;
+    background-position: center;
+    flex-direction: row;
+    justify-content: left;
+    justify-items: left;
+    justify-self: left;
+    text-align: left;
+}
+.firstSecction > div{
+    background:rgba(180, 180, 180, 0.5) ;
+    height: 300px;
+    margin: 10px;
+      width: 500px;
+  padding: 2rem 1.5rem 2px 2rem;
+  text-align: left;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.firstSecction > a{
+    position: absolute;
+    bottom: 200px;
+    left: 50px;
+}
+.secondSection{
+    margin-top: 5px;
+    height: auto;
+     position: relative;
+}
+.secondSection > div{
+    height: 100%;
+    width: 100%;
+    color: white;
+    font-size: 2rem;
+}
+
+.secondSection > div:last-child p{
+padding: 20px;
+margin-bottom: 50px;
+font-family: sans-serif;
+margin: 5px;
+background-origin: content-box;
+background-position: center;
+background-size: cover;
+font-size: 20px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+.footer{
+    padding: 2rem 20px;
+    font-size: 1.2rem;
+    text-align: left;
+    color: white;
+    background: #263238;
+}
+
+.footer-SocialMedia > div{
+    margin: 5px;
+    text-align: left;
+    font-size: 1.5rem;
+   font-family: Courier New Monospace Lucida Console;
+}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {...}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {...}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {...}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {...}

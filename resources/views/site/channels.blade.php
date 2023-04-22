@@ -5,32 +5,34 @@
 @section('content')
 
 
-<div class="row" style="margin:0;">
-    <div class="col topo s12 blue lighten-5" style="padding: 10px 20px; ">
-        <div class="col s3">Canais Adicionados : <span id="canal">0</span> </div>
-        <div class =" col s43">Total a Pagar : <span id="kz">0</span> kwanzas </div>
-        <div class="col s3 right"> <a  class="btn" style=" background-color: #87CEEB;
-            color: black;
-            font-weght:bold;
-            text-transform: uppercase;">Contratar</a></div>
-    </div>
+<div class="alert alert-info row ppaymentSection" role="alert">
+     <div class="col-sm-6 col-md-4 col-lg-4">Canais Adicionados: <span id="canal">0</span></div>
+     <div class="col-sm-6 col-md-4 col-lg-4">Total a Pagar: <span id="kz">0</span>  Kwanzas</div>
+      
+    <div class="col-sm-12 col-md-4 col-lg-4"><a class="btn btn-primary" href="#" role="button">Contratar</a></div>
+ 
+</div> 
 
+
+<div class="alert alert-info addSection" role="alert">
+    <table class="table table-hover">
+  <tbody>
+ @foreach ($canais as $canal)
+    <tr>
+      <td>{{ $canal->name }} ({{$canal->price}})</td>
+      <td id="{{$canal->id}}" onclick="adicionar({{$canal->id}},{{$canal->price}})">
+        <a class="btn btn-info" role="button">Adicionar</a></td>
+    </tr>
+     @endforeach
+  
+   
+  </tbody>
+</table>
 </div>
-    <div class="row  grey lighten-2" style="margin:0; padding: 0px 20px;background-color:">
-       <table>
-        @foreach ($canais as $canal)
-        <tr class=" green lighten-3">
-            <td>{{ $canal->name }} ({{$canal->price}})</td>
-            <td id="{{$canal->id}}" onclick="adicionar({{$canal->id}},{{$canal->price}})"> 
-                <span class="btn grey darken-4">Adicionar</span></td>
-        </tr>
-        @endforeach
-       </table>
-    </div>
 
 <script>
 function adicionar(id,preco){
-  document.getElementById(id).innerHTML = " <span class='btn red'>Adicionado</span> ";
+  document.getElementById(id).innerHTML = " <a class='btn btn-warning' role='button'>Adicionado</a> ";
  
   let valor = document.getElementById('kz').innerText;
   let canal = document.getElementById('canal').innerText;

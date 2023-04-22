@@ -1,0 +1,206 @@
+*{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+.cabecalho{
+    padding: 10px;
+    background: url('../fotos/Capas/anselmo.png') no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#menu ul{
+   float: right;
+}
+#menu ul li a{
+    font-size: 20px;
+   }
+.limpesa{
+    clear: both;
+}
+#tema h5{
+    font-size: 50px;
+}
+.assunto{
+    padding: 10% 10% 5% 10%;
+}
+.conteudo h6{
+    font-size: 30px;
+    word-spacing: 2px;
+    color: white;
+}
+.conteudo p{
+    font-size: 25px;
+    word-spacing: 2px;
+    color: white;
+}
+.publicidade{
+    padding: 2px;
+    text-indent: 10px;
+}
+.busca{
+    padding-bottom: 7%;
+    width: 800px;
+    margin: 2px auto;
+}
+.busca form{
+    height: 30px;
+}
+.principal{
+   padding: 10px;
+}
+.principal p{
+    text-indent: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    padding-right: 5px;
+    word-break: keep-all;
+    text-align: justify;
+    margin-right: 5px;
+}
+.clearfix {
+    overflow: auto;
+  }
+  .clearfix img{
+    margin-left: 10px;
+  }
+  .clearfix span{
+    margin-right: 10px;
+  }
+  .footer{
+    box-shadow: 10px 10px 10px 10px black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px;
+    margin: 20px auto;
+  }
+  .abaixo ul li{
+    padding: 5px;
+    font-size: 20px;
+    color: black;
+  }
+
+  .abaixo ul li a{
+color: black;
+font-family:'Times New Roman', Times, serif
+}
+.abaixo ul li a:hover{
+    color: rgb(128, 130, 148);
+
+    }
+  .footer > div{
+    width: 300px;
+    height: 300px;
+    margin-right: 20px;
+    font-size: 15px;
+    text-align: left;
+  }
+  a{
+    text-decoration: none;
+  }
+.lancamentos{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-left: 10px;
+    margin: 0px auto;
+}
+.lanc{
+    padding-left: 20px;
+    background-color: rgb(61, 59, 59);
+}
+.lancamentos .card{
+    width: 300px;
+    height: 300px;
+    margin: 5px 10px 70px 10px;
+}
+.card img{
+    height: 100%;
+    width: 100%;
+}
+.info{
+    margin-top: 2px;
+    padding-left: 5px;
+    background: rgb(3, 17, 22);
+    color: whitesmoke;
+}
+.info h5{
+    font-size: 30px;
+    font-weight: bold;
+}
+.info span{
+    font-size: 20px;
+    width: 20px;
+  height: 20px;
+    overflow: hidden;
+}
+.faixa{
+    font-size: 20px;
+   overflow: hidden;
+   white-space:nowrap;
+   text-overflow: ellipsis;
+}
+.postar{
+    padding: 10px;
+    max-width: 1000px;
+    margin: 2px auto;
+}
+.postar form  .form-group{
+
+    margin: 2px;
+    padding: 2px;
+}
+
+#form-noticias{
+    display: none;
+}
+
+#form-publicidades{
+    display: none;
+}
+.destaques{
+    display: flex;
+    align-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 5px;
+    padding-left: 40px;
+    background-size: cover;
+}
+.itens{
+    border: 2px solid skyblue;
+    width: 400px;
+    text-overflow: ellipsis;
+    height: 400px;
+    padding: 5px;
+    background: lightblue;
+    margin: 2px;
+    color: white;
+    border-radius: 5px;
+}
+.esquerda{
+    text-align: left;
+
+}
+.materia{
+    text-overflow: ellipsis;
+     font-size: 15px;
+     overflow: hidden;
+     white-space:wrap;
+    max-height: 100px;
+    background: black;
+}
+
+.detalhes{
+    padding-top: 30px;
+    margin: 0 auto;
+}
+#foto{
+    height: 500px;
+}
+#letra{
+   padding-left: 10px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
