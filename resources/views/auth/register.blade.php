@@ -11,84 +11,65 @@ input::placeholder{
 
     </style>
 @section('content')
-<div style="background-color: #fafafa; margin:0;">
 
 
-  <div class="row" style="margin:0;">
-    <form action="/registrar" method="POST"  enctype="multipart/form-data" class="col s12">
-      @csrf
-      <div class="center">
+ <div class="bg-lighter row" style="margin: 0 auto; padding: 40px 10px; color:white;"> 
+     <div class="center col-sm-12 col-md-3 col-lg-3">
         <h4>Faça seu cadastro no NetGenius</h4>
       
     </div>
+
+    <form action="/registrar" method="POST"  enctype="multipart/form-data" class="col-sm-12 col-md-9 col-lg-9">
+      @csrf
+ <div class="bg-lighter row"> 
      
-        <div class="input-field col s6">
-          <input  id="name" type="text" class="inputs" name="name" required placeholder="Nome" style=" background-color: white;
-          border: 2px solid ##9e9e9e;
-          text-indent: 10px;
-          border-radius: 10px;
-          color: black; width:100%;">
+        <div class="form-group col-sm-12 col-md-12 col-lg-12">
+           <label for="exampleInputPassword1">Nome</label>
+          <input  id="name" type="text" class="form-control" name="name" required placeholder="Nome">
         </div>
     
     
-        <div class="input-field col s6">
-          <input id="address" type="text" class="inputs" name="address" required placeholder="Address" style=" background-color: white;
-          border: 2px solid  ##9e9e9e;
-          text-indent: 10px;
-          border-radius: 10px;
-          color: black;">
+        <div class="form-group col-sm-12 col-md-6 col-lg-6">
+           <label for="exampleInputPassword1">Endereço</label>
+          <input id="address" type="text" class="form-control" name="address" required placeholder="Address">
         </div>
     
       
-        <div class="input-field col s6">
-          <input id="bi" type="text" class="inputs" name="bi" required placeholder="Bilhete de Identidade" style=" background-color: white;
-          border: 2px solid  ##9e9e9e;
-          text-indent: 10px;
-          border-radius: 10px;
-          color: black;">
+        <div class="form-group col-sm-12 col-md-6 col-lg-6">
+           <label for="exampleInputPassword1">Número de Bilhente de Identidate</label>
+          <input id="bi" type="text" class="form-control" name="bi" required placeholder="Bilhete de Identidade">
         </div>
       
-        <div class="input-field col s6">
-          
-          <input type="email" class="inputs" name="email" required placeholder="Email" style=" background-color: white;
-          border: 2px solid ##9e9e9e;
-          text-indent: 10px;
-          border-radius: 10px;
-          color: black;">
+        <div class="form-group col-sm-12 col-md-6 col-lg-6">
+           <label for="exampleInputPassword1">Email</label>
+          <input type="email" class="form-control" name="email" required placeholder="Email">
         
         </div>
     
-        <div class="input-field col s6">
-          <input id="phone" type="text" class="inputs" name="phone" required placeholder="Telefone" style=" background-color: white;
-          border: 2px solid ##9e9e9e;
-          text-indent: 10px;
-          border-radius: 10px;
-          color: black;">
+        <div class="form-group col-sm-12 col-md-6 col-lg-6">
+           <label for="exampleInputPassword1">Telefone</label>
+          <input id="phone" type="text" class="form-control" name="phone" required placeholder="Telefone">
          
         </div>
 
-        <div class="input-field col s6">
-            
-          <input id="nascimento" type="date" class="validate" name="born_at" required style=" background-color: white;
-          border: 2px solid ##9e9e9e;
-          text-indent: 10px;
-          border-radius: 10px;
-          color: black;">
+        <div class="form-group col-sm-12 col-md-6 col-lg-6">
+             <label for="exampleInputPassword1">Data de Nacimento</label>
+          <input id="nascimento" type="date"  class="form-control" name="born_at" required>
           
         </div>
-        <div class="input-field col s6">
-          <input id="password" type="password" name="password" required placeholder="Password" style=" background-color: white;
-          border: 2px solid ##9e9e9e;
-          text-indent: 10px;
-          border-radius: 10px;
-          color: black;">
-         
-        </div>
    
-        <div class="input-field col s12">
-          <button type="submit" class="waves-effect waves-light btn-large">Registar</button>
+  <div class="form-group col-sm-12 col-md-6 col-lg-6">
+    <label for="exampleInputPassword1">Senha</label>
+    <input type="password" class="form-control"  name="password" id="password" placeholder="Senha">
+  </div>
+
+
+        <div class="form-group col-sm-12 col-md-12 col-lg-12">
+          <button type="submit" class="btn btn-primary">Registar</button>
         </div>
       
+
+      </div>
     </form>
   </div>
 </div>

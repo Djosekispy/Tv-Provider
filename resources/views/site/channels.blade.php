@@ -14,7 +14,7 @@
 </div> 
 
 
-<div class="alert alert-info addSection" role="alert">
+<div class="addSection" role="alert">
     <table class="table table-hover">
   <tbody>
  @foreach ($canais as $canal)

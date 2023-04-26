@@ -24,7 +24,7 @@ class siteController extends Controller
 
 
     public function channels($id){
-
+ $user_id = Auth::id();
         $channels = DB::select("SELECT p.name as pacote, c.name as canal,c.price as preco,cat.name as categoria from packages as p
         inner join contract ct on ct.package = p.id
         inner join channels c on c.id = ct.channel
@@ -42,37 +42,84 @@ class siteController extends Controller
 
         $pacote = DB::select(" SELECT name as pacote, id as identify,description as descricao, price as preco from packages where id = '$id' limit 1");
 
+  $subscricaoActual = self::verifyCurrentSubsciption($id, $user_id);
+    $subscricao = self::verifySubscription($user_id);
+
         return view('site.deteils',[
             'channel' => $channels,
             'total' => $total,
             'pacote' => $pacote,
-            'canais' => $canais
+            'canais' => $canais,
+            'subscricaoActual' => $subscricaoActual,
+            'subscricao' => $subscricao
         ]);
     }
+
+
+
+public function channel(){
+    $canais = Channel::all();
+  
+    return view('site.channels', compact('canais'));
+}
+
+
+public function verifySubscription($user_id) {
+       $subscription = Subscription::where('user',$user_id)
+        ->where('state','1')->get()->first();
+
+       if($subscription){
+        return false;
+       }
+       return true;
+}
+
+public function verifyCurrentSubsciption($id,$user_id){
+ $subscription = Subscription::where('user',$user_id)
+        ->where('state','1')
+        ->where('package',$id)
+        ->get()->first();
+
+         if($subscription){
+        return false;
+       }
+       return true;
+}
+
 
     public function buy(Request $request){
         $user_id = Auth::id();
         $sub = new Subscription();
-        $subscription = DB::select("SELECT * from subscription where id in (SELECT id from subscription where state = '1') and user = '$user_id' ");
-        $ctivo = Subscription::where('user',$user_id)
-        ->where('state','1')->get()->first();
-    if($subscription){
-        return back()->with("message","Plano já activo Não pode activar o mesmo plano");
-    }
-
     $sub->user =  $user_id;
     $sub->package = $request->package;
+    $sub->duration = 30;
     $sub->save();
 
     return back()->with('message','Plano Comprado com sucesso!');
 
     }
 
-public function channel(){
-    $canais = Channel::all();
+    public function cancel(Request $request){
+         $user_id = Auth::id();
+       $cancelar = DB::update("UPDATE subscriptions set state = '0' WHERE user = '$user_id' and package = '$request->package' ");
+       return back()->with('message','Plano Cancelado!'); 
+    }
 
-    return view('site.channels', compact('canais'));
-}
+   public function upgrade(Request $request){
+    $user_id = Auth::id();
+    $sub = new Subscription();
+   
+   $pacote = Subscription::where('user',$user_id)
+        ->where('state','1')
+        ->get()->first();
+ $cancelar = DB::update("UPDATE subscriptions set state = '0' WHERE user = '$user_id' and package = '$pacote->package' ");
+   
+    $sub->user =  $user_id;
+    $sub->package = $request->package;
+    $sub->duration = 30;
+    $sub->save();
+return back()->with('message','Plano Actualizado com sucesso!');
 
+   }
 
 }

@@ -20,18 +20,19 @@
 <div class="col-sm-12 col-md-8 col-lg-8 text-right" id="menu">
     <div class="row">
         <ul class="nav nav-pills">
-        <li class="nav-item"><a href="index.html" class="nav-link text-dark">Home</a></li>
+        <li class="nav-item"><a href="/" class="nav-link text-dark">Home</a></li>
        
         <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-     aria-expanded="false">Serviços</a>
+     aria-expanded="false">Pacotes</a>
     <div class="dropdown-menu">
       <a class="dropdown-item" href="/channel/1">Fácil</a>
-      <a class="dropdown-item" href="/channeel/2">Normal</a>
+      <a class="dropdown-item" href="/channel/2">Normal</a>
       <a class="dropdown-item" href="/channel/3">Grande</a>
       <a class="dropdown-item" href="/channel/4">Mega</a>
 
   </li>
+   <li class="nav-item "><a href="/api/document" class="nav-link text-dark">API</a></li>
   <li class="nav-item "><a href="#" class="nav-link text-dark">Sobre Nós</a></li>
    @auth
        <li class="nav-item "><a href="/Channels" class="nav-link text-dark">Personalizar Pacotes</a></li>
@@ -89,8 +90,8 @@
 <div class="col-sm-12 col-md-2 col-lg-2 footer-SocialMedia">
    <strong> Nossa API</strong>
 
-<div>Documentação Oficial</div>
-<div>GitHub</div>
+<div><a href="/api/document">Documentação Oficial</a></div>
+<div><a href="https://github.com/Djosekispy/Tv-Provider">GitHub</a></div>
 <div>Dúvidas</div>
 </div>
 

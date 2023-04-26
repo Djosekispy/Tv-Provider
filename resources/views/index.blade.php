@@ -71,14 +71,14 @@ Conheça a nossa API que lhe permite ter acesso ao nossos pacotes, preços e can
 
     <h4 class="text text-light bg-info" style="padding:20px;">Pacotes Disponiveis</h4>
 
-   <div class="row" style="padding-left: 10px;">
-    @foreach($Packages as $p)
-    <div class="card" style="width:20rem; margin:5px 10px ;">
+   <div class="row planSection">
+    @foreach($Packages as $p => $pc)
+    <div class="card">
   <img class="card-img-center" src="{{asset('img/007.jpg')}}" alt="Imagem de capa do card">
   <div class="card-body">
-    <h5 class="card-title">{{$p['name']}}</h5>
-    <p class="card-text">{{$p['description']}}.</p>
-    <a href="#" class="btn btn-primary">Ver Plano</a>
+    <h5 class="card-title">{{$pc['name']}}</h5>
+    <p class="card-text">{{$pc['description']}}.</p>
+    <a href="/channel/{{$pc->id}}" class="btn btn-primary">Ver Plano</a>
   </div>
 </div>
 @endforeach

@@ -30,6 +30,8 @@
      </div>
       
     <div class="col-sm-12 col-md-6 col-lg-6">
+        @if($subscricaoActual)
+        @if($subscricao)
  <form action="/subscription/buy" method="post">
     @csrf
     <button type="submit" class="btn btn-primary" role="button">Contratar</button>
@@ -38,13 +40,35 @@
  @endforeach" style="display: none;">
 
 </form>
+@else
+ <form action="/upgrade/plan" method="post">
+    @csrf
+    <button type="submit" class="btn btn-primary" role="button">Actualizar Plano</button>
+    <input name="package" value=" @foreach ( $pacote as $p )
+    {{$p->identify}} 
+ @endforeach" style="display: none;">
+
+</form>
+
+@endif
+@else
+<form action="/cancel/plan" method="post">
+    @csrf
+    <input name="package" value=" @foreach ( $pacote as $p )
+    {{$p->identify}} 
+ @endforeach" style="display: none;">
+
+    <button type="submit" class="btn btn-danger" role="button">Cancelar Subscrição</button>
+    
+@endif
+
 </div> 
 
 </div>
 
 
 
-<div class="addSection row" role="alert" style="background: #e8f5e9;">
+<div class="addSection row alert text-light  " role="alert" >
 
     <div class="col-sm-12 col-md-6 col-lg-6">
         <h4 class="alert alert-success">Seus Canais</h4>

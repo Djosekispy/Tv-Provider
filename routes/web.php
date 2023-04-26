@@ -19,13 +19,16 @@ Route::post('/',[AcessoController::class, 'logout'])->name('my-logout');
 Route::get('/',[siteController::class, 'index'])->name('site.index');
 Route::post('/subscription/buy', [siteController::class, 'buy'])->middleware('auth');
 Route::get('/channel/{id}',[siteController::class, 'channels']);
-Route::get('/Channels', [siteController::class, 'channel']);
+Route::get('/Channels', [siteController::class, 'channel'])->middleware('auth');;
+Route::post('/cancel/plan',[siteController::class, 'cancel'])->middleware('auth');
+Route::post('/upgrade/plan', [siteController::class, 'upgrade'])->middleware('auth');
+
 
 
 //Rotas de API
 Route::get('/api/services',[servicesController::class, 'index']);
-Route::get('/api/user/{id}',[servicesController::class, 'user']);
-
+Route::get('/api/user',[servicesController::class, 'user']);
+Route::get('/api/subscription',[servicesController::class, 'subscription']);
 
 
 //Rotas de views de acesso
@@ -36,6 +39,9 @@ Route::get('/register', function(){
     return view('auth.register');
     });
 
+Route::get('/api/document', function(){
+    return view('site.document');
+    });
 
 Route::get('/teste',function(){
     return view('site.testes');
