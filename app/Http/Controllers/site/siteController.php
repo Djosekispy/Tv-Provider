@@ -149,6 +149,7 @@ return back()->with('message','Plano Actualizado com sucesso!');
     $packages->name = $request->name;
     $packages->description = "Meu plano personalizado, com os meus canais favoritos!";
     $packages->validate = 30;
+    $packages->image = "";
     $packages->price = $request->total_price;
     $packages->save();
     $lastId = DB::table('packages')->latest('id')->first()->id;
@@ -158,6 +159,12 @@ return back()->with('message','Plano Actualizado com sucesso!');
     $channel->channel = $value;
     $channel->save();
    }
+
+
+   $sub->user =  $user_id;
+   $sub->package =  $lastId;
+   $sub->duration = 30;
+   $sub->save();
 
 return response()->back()->with("message","Plano criado com sucesso!");
    }

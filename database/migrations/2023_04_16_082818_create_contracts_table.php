@@ -9,11 +9,11 @@ return new class extends Migration
    
     public function up(): void
     {
-        Schema::create('contract', function (Blueprint $table) {
+        Schema::create('contracts', function (Blueprint $table) {
              $table->integer('id',TRUE,FALSE);
            $table->integer('package');
            $table->integer('channel');
-
+           $table->timestamps();
  $table->foreign('package')
       ->constrained()
       ->onUpdate('cascade')
@@ -29,6 +29,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('contract');
+        Schema::dropIfExists('contracts');
     }
 };
