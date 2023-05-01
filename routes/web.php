@@ -47,7 +47,9 @@ Route::get('/teste',function(){
     return view('site.testes');
 });
 
+Route::get('/history',[siteController::class, 'history']);
 
-
-
+Route::get('/streaming', function(){
+return view('site.streaming');
+});
 

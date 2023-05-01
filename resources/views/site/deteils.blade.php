@@ -24,11 +24,11 @@
    Disponivel por apenas {{$p->preco}} kwanzas
 @endforeach
     </a>
-   
-   
+
+
     @endforeach
      </div>
-      
+
     <div class="col-sm-12 col-md-6 col-lg-6">
         @if($subscricaoActual)
         @if($subscricao)
@@ -36,7 +36,7 @@
     @csrf
     <button type="submit" class="btn btn-primary" role="button">Contratar</button>
     <input name="package" value=" @foreach ( $pacote as $p )
-    {{$p->identify}} 
+    {{$p->identify}}
  @endforeach" style="display: none;">
 
 </form>
@@ -45,9 +45,8 @@
     @csrf
     <button type="submit" class="btn btn-primary" role="button">Actualizar Plano</button>
     <input name="package" value=" @foreach ( $pacote as $p )
-    {{$p->identify}} 
+    {{$p->identify}}
  @endforeach" style="display: none;">
-
 </form>
 
 @endif
@@ -55,20 +54,19 @@
 <form action="/cancel/plan" method="post">
     @csrf
     <input name="package" value=" @foreach ( $pacote as $p )
-    {{$p->identify}} 
+    {{$p->identify}}
  @endforeach" style="display: none;">
-
     <button type="submit" class="btn btn-danger" role="button">Cancelar Subscrição</button>
-    
+</form>
+<button class="btn btn-primary" role="button" id="editar" style="margin-top:5px;">Editar Pacote</button>
 @endif
-
-</div> 
+</div>
 
 </div>
 
 
 
-<div class="addSection row alert text-light  " role="alert" >
+<div class="addSection row alert text-light" role="alert" >
 
     <div class="col-sm-12 col-md-6 col-lg-6">
         <h4 class="alert alert-success">Seus Canais</h4>
@@ -77,6 +75,13 @@
                 @foreach ($channel as $ch )
                 <tr>
                 <td>{{$ch->canal}}</td>
+                <td>
+
+      @if(!$subscricaoActual)
+    <a href="/streaming" class="btn btn-info" role="button">Assistir Canal</a>
+@endif
+
+</td>
                   </tr>
                 @endforeach
   </tbody>
@@ -87,7 +92,7 @@
          <h4 class="alert alert-success">Categorias do Pacote</h4>
             <table class="table table-hover">
   <tbody>
-   
+
                 @foreach ($total as $t )
                 <tr>
                 <td>{{$t->canal}}</td>
@@ -100,8 +105,5 @@
 
 
 </div>
-
-
-
-
 @endsection
+

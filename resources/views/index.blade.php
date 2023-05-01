@@ -15,16 +15,23 @@
     </div>
     
        <div class="carousel-item ">
-           <img  src="{{asset('fotos/globo.png')}}" alt="Segundo Slide">
+           <img  src="{{asset('img/pub001.jpg')}}" alt="Segundo Slide">
         <div class="carousel-caption d-none d-md-block">
-    <p>Assista ao melhor do Ano com A Globo F acesse já globo-f.blogspot.com!</p>
+    <p>Venha desfrutar as maior praça de idéias do Sul de Angola!</p>
+  </div> 
+    </div>
+
+  <div class="carousel-item ">
+           <img  src="{{asset('img/pub003.png')}}" alt="Segundo Slide">
+        <div class="carousel-caption d-none d-md-block">
+    <p>A GRANDE FINAL da UEFA Champios league você encontra aqui!</p>
   </div> 
     </div>
 
    <div class="carousel-item">
-           <img  src="{{asset('fotos/globo.png')}}" alt="terceiro Slide">
+           <img  src="{{asset('img/pub002.jpg')}}" alt="terceiro Slide">
         <div class="carousel-caption d-none d-md-block">
-    <p>Tenha Acesso as todas as mais recentes novidades!</p>
+    <p>Aos Domingo não perca o melhor para as crianças com "O INCRIVEL MUNDO DE GUMBOL"!</p>
   </div> 
     </div>
   </div>

@@ -139,12 +139,15 @@ return back()->with('message','Plano Actualizado com sucesso!');
     $packages->validate = $request->date;
     $packages->price = $request->price;
     $packages->save();
+    $lastId = DB::table('packages')->latest('id')->first()->id;
 
-   foreach($request->channels as $cha){
-
+   foreach($request->channels as $value){
+    $channel->package = $lastId ;
+    $channel->channel = $value;
+    $channel->save();
    }
 
-
+return view('site.history');
    }
 
 }

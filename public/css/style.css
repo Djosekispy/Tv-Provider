@@ -26,7 +26,14 @@
   color: white;
   font-weight: bolder;
   margin: 10px;
+  font-size: 2rem;
 }
+.documentSection > p{
+  color: white;
+  font-weight: lighter;
+  font-size: 1.4rem;
+}
+
 
 body{
      background-color: #212121;
@@ -119,15 +126,17 @@ body{
     color: black;
     padding: 30px;
     font-size: 20px;
+    text-transform: capitalize;
 }
 .ppaymentSection > div {
     margin-top: 3px;
 }
 .addSection table tbody tr:hover{
-    background-color: #81c784 ;
+    background-color: lightskyblue;
+
 }
 .addSection table tbody tr:nth-child(even){
-    background-color: #a5d6a7;
+    background-color: lightsteelblue;
 }
 
 
@@ -143,7 +152,7 @@ body{
     margin: 5px;
     text-align: left;
     font-size: 15px;
-   font-family: Courier New Monospace Lucida Console;
+  font-family:sans-serif serif;
 }
 .firstSecction{
     position: relative;

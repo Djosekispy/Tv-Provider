@@ -36,6 +36,7 @@
   <li class="nav-item "><a href="#" class="nav-link text-dark">Sobre Nós</a></li>
    @auth
        <li class="nav-item "><a href="/Channels" class="nav-link text-dark">Personalizar Pacotes</a></li>
+       <li class="nav-item "><a href="/history" class="nav-link text-dark">Histórico</a></li>
    <li class="nav-item "><a href="{{ route('my-logout') }}" onclick="event.preventDefault(); document.getElementById('my-logout-form').submit();" class="nav-link text-dark">Sair</a></li>
         @endauth
        <form id="my-logout-form" action="{{ route('my-logout') }}" method="POST" style="display: none;">
