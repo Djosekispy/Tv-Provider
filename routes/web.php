@@ -22,7 +22,7 @@ Route::get('/channel/{id}',[siteController::class, 'channels']);
 Route::get('/Channels', [siteController::class, 'channel'])->middleware('auth');;
 Route::post('/cancel/plan',[siteController::class, 'cancel'])->middleware('auth');
 Route::post('/upgrade/plan', [siteController::class, 'upgrade'])->middleware('auth');
-
+Route::post('/Create/Plan',[siteController::class, 'createNewPlan'])->middleware('auth')->name('criar-Plano');
 
 
 //Rotas de API

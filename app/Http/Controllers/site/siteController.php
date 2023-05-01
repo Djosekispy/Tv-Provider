@@ -10,6 +10,7 @@ use App\Models\Subscription;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Channel;
+use App\Models\Contract;
 class siteController extends Controller
 {
 
@@ -35,19 +36,19 @@ $user_id = Auth::id();
     public function channels($id){
  $user_id = Auth::id();
         $channels = DB::select("SELECT p.name as pacote, c.name as canal,c.price as preco,cat.name as categoria from packages as p
-        inner join contract ct on ct.package = p.id
+        inner join contracts ct on ct.package = p.id
         inner join channels c on c.id = ct.channel
         inner join categories as cat on cat.id = c.category
         where ct.package = '$id' ");
 
         $total = DB::select("SELECT cat.name as canal, count(ct.channel) as total from packages as p
-        inner join contract ct on ct.package = p.id
+        inner join contracts ct on ct.package = p.id
         inner join channels c on c.id = ct.channel
         inner join categories as cat on cat.id = c.category
         where ct.package = '$id'
         group by cat.name ");
 
-        $canais = DB::select("select count(*) canais from contract where package = '$id'");
+        $canais = DB::select("select count(*) canais from contracts where package = '$id'");
 
         $pacote = DB::select(" SELECT name as pacote, id as identify,description as descricao, price as preco from packages where id = '$id' limit 1");
 
@@ -132,12 +133,23 @@ return back()->with('message','Plano Actualizado com sucesso!');
    }
 
    public function createNewPlan(Request $request){
+    $user_id = Auth::id();
+    $sub = new Subscription();
+
+   $pacote = Subscription::where('user',$user_id)
+        ->where('state','1')
+        ->get()->first();
+
+
+ if($pacote){
+  $calncel = DB::update("UPDATE subscriptions set state = '0' WHERE user = '$user_id' and package = '$pacote->package' ");
+ }
     $packages = new Package();
-    $channel = new Channel();
+    $channel = new Contract();
     $packages->name = $request->name;
-    $packages->description = $request->description;
-    $packages->validate = $request->date;
-    $packages->price = $request->price;
+    $packages->description = "Meu plano personalizado, com os meus canais favoritos!";
+    $packages->validate = 30;
+    $packages->price = $request->total_price;
     $packages->save();
     $lastId = DB::table('packages')->latest('id')->first()->id;
 
@@ -147,7 +159,7 @@ return back()->with('message','Plano Actualizado com sucesso!');
     $channel->save();
    }
 
-return view('site.history');
+return response()->back()->with("message","Plano criado com sucesso!");
    }
 
 }
