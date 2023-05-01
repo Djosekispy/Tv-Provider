@@ -21,6 +21,15 @@ class siteController extends Controller
          'Packages' => $packages
         ]);
     }
+    public function history(){
+$user_id = Auth::id();
+        $packages = DB::select("SELECT * FROM  packages as pk INNER JOIN subscriptions as sub on sub.package = pk.id
+            WHERE sub.user = '$user_id'
+            ");
+        return view('site.history',[
+         'Packages' => $packages
+        ]);
+    }
 
 
     public function channels($id){
@@ -59,7 +68,7 @@ class siteController extends Controller
 
 public function channel(){
     $canais = Channel::all();
-  
+
     return view('site.channels', compact('canais'));
 }
 
@@ -102,23 +111,39 @@ public function verifyCurrentSubsciption($id,$user_id){
     public function cancel(Request $request){
          $user_id = Auth::id();
        $cancelar = DB::update("UPDATE subscriptions set state = '0' WHERE user = '$user_id' and package = '$request->package' ");
-       return back()->with('message','Plano Cancelado!'); 
+       return back()->with('message','Plano Cancelado!');
     }
 
    public function upgrade(Request $request){
     $user_id = Auth::id();
     $sub = new Subscription();
-   
+
    $pacote = Subscription::where('user',$user_id)
         ->where('state','1')
         ->get()->first();
  $cancelar = DB::update("UPDATE subscriptions set state = '0' WHERE user = '$user_id' and package = '$pacote->package' ");
-   
+
     $sub->user =  $user_id;
     $sub->package = $request->package;
     $sub->duration = 30;
     $sub->save();
 return back()->with('message','Plano Actualizado com sucesso!');
+
+   }
+
+   public function createNewPlan(Request $request){
+    $packages = new Package();
+    $channel = new Channel();
+    $packages->name = $request->name;
+    $packages->description = $request->description;
+    $packages->validate = $request->date;
+    $packages->price = $request->price;
+    $packages->save();
+
+   foreach($request->channels as $cha){
+
+   }
+
 
    }
 
